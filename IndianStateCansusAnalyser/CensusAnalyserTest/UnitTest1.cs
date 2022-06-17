@@ -10,6 +10,9 @@ namespace CensusAnalyserTest
 {
     public class Tests
     {
+
+      
+
         static string indianStateCensusHeaders = "State,Population,AreaInSqkn,DensityPerSqkn";
         static string indianStateCodeHeaders = "SrNo,State Name,TIN,StateCode";
         static string indianStateCensusFilePath = @"D:\BridgeLabzFellowship\CensusAnalayser\IndianStateCansusAnalyser\CensusAnalyserTest\CSVFiles\StateCensusData.csv";
@@ -82,7 +85,12 @@ namespace CensusAnalyserTest
             Assert.AreEqual(CensusAnalyserException.ExceptionType.INCORRECT_HEADER, stateException.eType);
 
         }
-
+        [Test]
+        public void GivenIndianStateCodeCsvFile_WhenRead_ThenShouldReturnStateCodeDataCount()
+        {
+            stateRecord = censusAnalyser.LoadCensusData(Country.INDIA, indianStateCodeFilePath, indianStateCodeHeaders);
+            Assert.AreEqual(37, stateRecord.Count);
+        }
 
     }
 }
