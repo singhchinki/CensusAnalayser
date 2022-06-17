@@ -1,0 +1,1 @@
+﻿Console.WriteLine("welcome IndianState Analyser");
